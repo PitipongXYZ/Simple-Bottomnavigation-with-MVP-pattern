@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pitipong.samplebottomnavigation.R
-
+import kotlinx.android.synthetic.main.note_frag.*
 
 class NoteFragment : Fragment(), NoteContact.View{
 
@@ -28,8 +28,7 @@ class NoteFragment : Fragment(), NoteContact.View{
         presenter.create()
     }
 
-    override fun onResume() {
-        super.onResume()
-        presenter.start()
+    fun OnDataFatched(msg: String){
+        textview_note_title.text = msg
     }
 }

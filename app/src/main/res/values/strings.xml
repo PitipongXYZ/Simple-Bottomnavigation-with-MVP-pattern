@@ -3,4 +3,7 @@
     <string name="title_note">เขียนบันทึก</string>
     <string name="title_history">ดูบันทึก</string>
     <string name="title_profile">ข้อมูลส่วนตัว</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

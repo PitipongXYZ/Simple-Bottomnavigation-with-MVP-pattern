@@ -1,9 +1,9 @@
 package com.pitipong.samplebottomnavigation.note
 
-class NotePresenter(private val noteContact: NoteContact.View): NoteContact.Presenter {
+class NotePresenter(private val noteView: NoteContact.View): NoteContact.Presenter {
 
     init {
-        noteContact.presenter = this
+        noteView.presenter = this
     }
 
     override fun create() {
@@ -13,4 +13,5 @@ class NotePresenter(private val noteContact: NoteContact.View): NoteContact.Pres
     override fun start() {
 
     }
+
 }

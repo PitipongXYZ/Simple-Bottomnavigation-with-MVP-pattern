@@ -6,11 +6,9 @@ import com.pitipong.samplebottomnavigation.BaseView
 interface NoteContact {
 
     interface View : BaseView<Presenter> {
-
     }
 
     interface Presenter : BasePresenter {
-
     }
 
 }

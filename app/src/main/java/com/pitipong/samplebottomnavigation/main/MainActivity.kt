@@ -13,18 +13,22 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private var noteFragment: NoteFragment? = null
+    private var historyFragment: HistoryFragment? = null
+    private var profileFragment: ProfileFragment? = null
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_note -> {
-                viewpager.setCurrentItem(0,true)
+                viewpager.setCurrentItem(0, true)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_history -> {
-                viewpager.setCurrentItem(1,true)
+                viewpager.setCurrentItem(1, true)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_profile -> {
-                viewpager.setCurrentItem(2,true)
+                viewpager.setCurrentItem(2, true)
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -34,8 +38,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        initFragment()
+
+        pass_data.setOnClickListener {
+            noteFragment!!.OnDataFatched(edittext_data.text.toString())
+        }
+    }
+
+    private fun initFragment() {
+        noteFragment = NoteFragment.newInstance()
+        historyFragment = HistoryFragment.newInstance()
+        profileFragment = ProfileFragment.newInstance()
+
         initViewPager()
     }
 
@@ -45,9 +60,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = ViewPagerAdapter(supportFragmentManager)
-        adapter.addFragment(NoteFragment.newInstance(), "Note")
-        adapter.addFragment(HistoryFragment.newInstance(), "History")
-        adapter.addFragment(ProfileFragment.newInstance(), "Profile")
+        adapter.addFragment(noteFragment!!, "Note")
+        adapter.addFragment(historyFragment!!, "History")
+        adapter.addFragment(profileFragment!!, "Profile")
         viewPager.adapter = adapter
     }
 }

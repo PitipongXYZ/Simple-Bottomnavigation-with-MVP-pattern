@@ -13,6 +13,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+    <EditText
+            android:id="@+id/edittext_data"
+            android:layout_above="@+id/pass_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginEnd="28dp"
+    />
+
+    <Button
+            android:id="@+id/pass_data"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send data"
+    />
+
     <android.support.design.widget.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="match_parent"
