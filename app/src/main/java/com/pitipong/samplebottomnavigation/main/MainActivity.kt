@@ -17,6 +17,18 @@ class MainActivity : AppCompatActivity() {
     private var historyFragment: HistoryFragment? = null
     private var profileFragment: ProfileFragment? = null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        initFragments()
+
+        pass_data.setOnClickListener {
+            TODO("This's a method of NoteFragment. The name of a method is OnDataFetched it's mean data already fetch")
+            noteFragment!!.OnDataFetched(edittext_data.text.toString())
+        }
+    }
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_note -> {
@@ -35,18 +47,7 @@ class MainActivity : AppCompatActivity() {
         false
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        initFragment()
-
-        pass_data.setOnClickListener {
-            noteFragment!!.OnDataFatched(edittext_data.text.toString())
-        }
-    }
-
-    private fun initFragment() {
+    private fun initFragments() {
         noteFragment = NoteFragment.newInstance()
         historyFragment = HistoryFragment.newInstance()
         profileFragment = ProfileFragment.newInstance()

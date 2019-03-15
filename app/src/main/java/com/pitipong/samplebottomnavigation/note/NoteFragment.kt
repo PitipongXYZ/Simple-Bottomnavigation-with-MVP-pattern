@@ -28,7 +28,7 @@ class NoteFragment : Fragment(), NoteContact.View{
         presenter.create()
     }
 
-    fun OnDataFatched(msg: String){
+    fun OnDataFetched(msg: String){
         textview_note_title.text = msg
     }
 }
