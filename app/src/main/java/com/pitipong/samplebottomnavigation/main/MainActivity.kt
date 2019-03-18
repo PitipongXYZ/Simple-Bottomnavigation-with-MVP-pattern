@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         initFragments()
 
         pass_data.setOnClickListener {
-            TODO("This's a method of NoteFragment. The name of a method is OnDataFetched it's mean data already fetch")
             noteFragment!!.OnDataFetched(edittext_data.text.toString())
         }
     }
