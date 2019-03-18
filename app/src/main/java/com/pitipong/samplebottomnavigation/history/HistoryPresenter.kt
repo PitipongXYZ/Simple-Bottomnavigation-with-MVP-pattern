@@ -1,9 +1,9 @@
 package com.pitipong.samplebottomnavigation.history
 
-class HistoryPresenter(private val profileContact: HistoryContact.View): HistoryContact.Presenter {
+class HistoryPresenter(private val profileView: HistoryContact.View): HistoryContact.Presenter {
 
     init {
-        profileContact.presenter = this
+        profileView.presenter = this
     }
 
     override fun create() {

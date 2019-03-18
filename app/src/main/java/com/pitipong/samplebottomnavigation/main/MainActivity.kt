@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import com.pitipong.samplebottomnavigation.R
 import com.pitipong.samplebottomnavigation.adapter.ViewPagerAdapter
 import com.pitipong.samplebottomnavigation.history.HistoryFragment
+import com.pitipong.samplebottomnavigation.map.MapFragment
 import com.pitipong.samplebottomnavigation.note.NoteFragment
 import com.pitipong.samplebottomnavigation.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private var noteFragment: NoteFragment? = null
     private var historyFragment: HistoryFragment? = null
     private var profileFragment: ProfileFragment? = null
+    private var mapFragment: MapFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,10 @@ class MainActivity : AppCompatActivity() {
                 viewpager.setCurrentItem(2, true)
                 return@OnNavigationItemSelectedListener true
             }
+            R.id.navigation_map -> {
+                viewpager.setCurrentItem(3, true)
+                return@OnNavigationItemSelectedListener true
+            }
         }
         false
     }
@@ -51,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         noteFragment = NoteFragment.newInstance()
         historyFragment = HistoryFragment.newInstance()
         profileFragment = ProfileFragment.newInstance()
+        mapFragment = MapFragment.newInstance()
 
         initViewPager()
     }
@@ -64,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         adapter.addFragment(noteFragment!!, "Note")
         adapter.addFragment(historyFragment!!, "History")
         adapter.addFragment(profileFragment!!, "Profile")
+        adapter.addFragment(mapFragment!!, "Map")
         viewPager.adapter = adapter
     }
 }
